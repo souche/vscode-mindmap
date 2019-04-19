@@ -7,7 +7,7 @@
     "publisher": "Souche",
     "repository": {
       "type": "git",
-      "url": "https://github.com/souche-dev/vscode-mindmap.git"
+      "url": "https://github.com/souche-rdc/vscode-mindmap.git"
     },
     "engines": {
         "vscode": "^1.33.0"
