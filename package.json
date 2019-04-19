@@ -1,9 +1,14 @@
 {
     "name": "vscode-mindmap",
     "displayName": "vscode-mindmap",
+    "icon": "resources/icon.png",
     "description": "mindmap for vscode",
     "version": "0.0.1",
     "publisher": "Souche",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/souche-dev/vscode-mindmap.git"
+    },
     "engines": {
         "vscode": "^1.33.0"
     },
