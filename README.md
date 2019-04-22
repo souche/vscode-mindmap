@@ -1,9 +1,5 @@
 <p>
-  <h1 align="center">
-    <a href="https://github.com/souche/vscode-mindmap" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.souche.com/f2e/5798b1e975c66a134124eca34527865a.png" width="100" alt="vscode-mindmap"/>
-    </a>
-  </h1>
+  <h1 align="center">vscode-mindmap</h1>
 </p>
 
 ![mindmap](https://img.souche.com/f2e/1eadd508ee3488cb815b44c723c7154a.gif)
