@@ -22,10 +22,10 @@
 
 ## Keyboard Shortcuts
 
-| Key                                               | Command                      |
-| ------------------------------------------------- | ---------------------------- |
-| cmd + m(mac) / ctrl + m(windows)                  | open a webview of textDocument |
-| cmd + s(mac) / ctrl + s(windows)                  | save mindmap file            |
+| Key                              | Command                        |
+| -------------------------------- | ------------------------------ |
+| cmd + m(mac) / ctrl + m(windows) | open a webview of textDocument |
+| cmd + s(mac) / ctrl + s(windows) | save mindmap file              |
 
 ## FAQ
   - **File parsed incorrectly, the current webview only show initial mindmap**
