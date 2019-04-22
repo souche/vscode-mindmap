@@ -8,7 +8,7 @@
 
 -  File Edit(eg: .km), Save, Export
 -  Transpile .xmind to .km
--  Support export to image(.png)
+-  Support export to image(.png)
 
 ## Installation
 
@@ -18,7 +18,7 @@
 
 ## Usage
 
-  open any file with extension of km or xmind after install the plugin
+  open any file with extension of km or xmind after install the plugin
 
 ## Keyboard Shortcuts
 
@@ -32,7 +32,7 @@
   
     close the file and webview, try to reopen this file
 
-  - **Extension invalid when the plugin installed**
+  - **Extension invalid when the plugin installed**
 
     check your vscode version, please ensure the version is 1.29.0 or more
 
