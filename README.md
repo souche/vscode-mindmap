@@ -34,7 +34,7 @@
 
   - **Extension invalid when the plugin installed**
 
-    check your vscode version, please ensure the version is 1.29.0 or more
+    check your vscode version, please ensure the version is 1.29.0 or above
 
 ## 
 
