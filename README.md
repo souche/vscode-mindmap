@@ -28,7 +28,7 @@
 | cmd + s(mac) / ctrl + s(windows) | save mindmap file              |
 
 ## FAQ
-  - **File parsed incorrectly, the current webview only show initial mindmap**
+  - **File parsed incorrectly, the current webview only show initial mindmap**
   
     close the file and webview, try to reopen this file
 
