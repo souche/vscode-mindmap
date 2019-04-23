@@ -66,6 +66,9 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
+  "dependencies": {
+    "xmind": "^0.5.0"
+  },
   "devDependencies": {
     "typescript": "^2.6.1",
     "vscode": "^1.1.21",
