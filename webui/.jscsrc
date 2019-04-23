@@ -1,0 +1,89 @@
+{
+  "validateIndentation": 4,
+
+  "requireSpaceBeforeBlockStatements": true,
+
+  "requireSpaceAfterKeywords": [
+    "if",
+    "else",
+    "for",
+    "while",
+    "do",
+    "try",
+    "catch",
+    "finally"
+  ],
+
+  "requireLeftStickedOperators": [",", ";"],
+
+  "requireSpaceBeforeBinaryOperators": [
+    "+",
+    "-",
+    "*",
+    "/",
+    "=",
+    "==",
+    "===",
+    "!=",
+    "!==",
+    "|",
+    "||",
+    "&",
+    "&&"
+  ],
+  "requireSpaceAfterBinaryOperators": [
+    "+",
+    "-",
+    "*",
+    "/",
+    "=",
+    "==",
+    "===",
+    "!=",
+    "!==",
+    "|",
+    "||",
+    "&",
+    "&&",
+    ":"
+  ],
+
+  "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
+
+  "disallowSpacesInFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+
+  "disallowSpacesInsideParentheses": true,
+
+  "disallowTrailingWhitespace": true,
+
+  "maximumLineLength": 120,
+
+  "requireOperatorBeforeLineBreak": [
+    "?",
+    "+",
+    "-",
+    "/",
+    "*",
+    "=",
+    "==",
+    "===",
+    "!=",
+    "!==",
+    ">",
+    ">=",
+    "<",
+    "<=",
+    ",",
+    ";",
+    "&&",
+    "&",
+    "||",
+    "|"
+  ],
+
+  "validateQuoteMarks": "'",
+
+  "disallowMultipleLineStrings": true
+}
