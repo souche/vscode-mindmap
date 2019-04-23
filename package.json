@@ -10,20 +10,52 @@
     "url": "https://github.com/souche/vscode-mindmap.git"
   },
   "engines": {
-    "vscode": "^1.33.0"
+    "vscode": "^1.29.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.sayHello"
+    "onLanguage:xmind",
+    "onLanguage:km",
+    "onCommand:extension.mindmap"
   ],
   "main": "./out/extension",
   "contributes": {
+    "languages": [
+      {
+        "id": "km",
+        "extensions": [
+          ".km"
+        ],
+        "aliases": [
+          "KM",
+          "km"
+        ]
+      },
+      {
+        "id": "xmind",
+        "extensions": [
+          ".xmind"
+        ],
+        "aliases": [
+          "XMIND",
+          "xmind"
+        ]
+      }
+    ],
     "commands": [
       {
-        "command": "extension.sayHello",
-        "title": "Hello World"
+        "command": "extension.mindmap",
+        "title": "mindmap"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.mindmap",
+        "key": "ctrl+m",
+        "mac": "cmd+m",
+        "when": "editorTextFocus"
       }
     ]
   },
