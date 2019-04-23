@@ -66,6 +66,25 @@
         $scope.initEditor = function(editor, minder) {
           window.editor = editor;
           window.minder = minder;
+
+          window.addEventListener('message', function(event) {
+            window.message = event.data;
+
+            switch (event.data.command) {
+              case 'import':
+                try {
+                  var importData = JSON.parse(window.message.importData);
+                  window.minder.importJson(importData);
+                } catch (ex) {
+                  console.error(ex);
+                }
+                break;
+            }
+          });
+
+          window.vscode.postMessage({
+            command: 'loaded',
+          });
         };
       });
   </script>
