@@ -82,6 +82,15 @@
             }
           });
 
+          window.addEventListener('keydown', function(e) {
+            var keyCode = e.keyCode || e.which || e.charCode;
+            var ctrlKey = e.ctrlKey || e.metaKey;
+            if (ctrlKey && keyCode === 83) {
+              var btnSave = document.querySelector('.km-export-save');
+              btnSave.click();
+            }
+          });
+
           window.vscode.postMessage({
             command: 'loaded',
           });
