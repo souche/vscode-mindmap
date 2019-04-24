@@ -122,5 +122,6 @@ function writeFileToDisk(fileName: string, data: any) {
       console.log(err);
       throw err;
     }
+    vscode.window.showInformationMessage(`write ${fileName} successed`);
   });
 }
