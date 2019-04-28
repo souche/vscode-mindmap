@@ -6,6 +6,9 @@ import { resourceSchema } from './constant';
 import { Xmind, Img } from './services';
 
 export function activate(context: vscode.ExtensionContext) {
+  const openedPanelMap = new Map<string, boolean | undefined | null>();
+  let isFirstActivate: boolean = true;
+  let timer: any = null;
   let disposable = vscode.commands.registerTextEditorCommand(
     'extension.mindmap',
     () => {
@@ -43,6 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
               panel.webview.postMessage({
                 command: 'import',
                 importData,
+                extName,
               });
               return;
 
@@ -81,7 +85,44 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const executeFirstCommand = (originFileName: string) => {
+    if (isFirstActivate) {
+      isFirstActivate = false;
+      openedPanelMap.set(originFileName, true);
+      timer = setTimeout(() => {
+        vscode.commands.executeCommand('extension.mindmap');
+      }, 300);
+    }
+  };
+
   context.subscriptions.push(disposable);
+  executeFirstCommand(
+    (vscode.window.activeTextEditor as vscode.TextEditor).document.fileName
+  );
+  vscode.workspace.onDidOpenTextDocument(e => {
+    const originFileName = e.fileName.replace('.git', '');
+    if (isFirstActivate) {
+      executeFirstCommand(originFileName);
+      return;
+    }
+
+    if (!openedPanelMap.get(originFileName)) {
+      openedPanelMap.set(originFileName, true);
+      timer = setTimeout(() => {
+        vscode.commands.executeCommand('extension.mindmap', originFileName);
+      }, 300);
+    }
+  });
+  vscode.workspace.onDidCloseTextDocument(e => {
+    if (e.fileName.endsWith('.git')) {
+      return;
+    }
+
+    if (openedPanelMap.get(e.fileName)) {
+      clearTimeout(timer);
+      openedPanelMap.set(e.fileName, false);
+    }
+  });
 }
 
 export function deactivate() {}
