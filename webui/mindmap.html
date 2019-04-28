@@ -56,45 +56,5 @@
   <script src="${vscode}/bower_components/color-picker/dist/color-picker.min.js"></script>
   <!-- endbower -->
   <script src="${vscode}/dist/kityminder.editor.min.js"></script>
-  <script>
-    angular
-      .module('kityminderDemo', ['kityminderEditor'])
-      .config(function(configProvider) {
-        configProvider.set('imageUpload', '../server/imageUpload.php');
-      })
-      .controller('MainController', function($scope) {
-        $scope.initEditor = function(editor, minder) {
-          window.editor = editor;
-          window.minder = minder;
-
-          window.addEventListener('message', function(event) {
-            window.message = event.data;
-
-            switch (event.data.command) {
-              case 'import':
-                try {
-                  var importData = JSON.parse(window.message.importData);
-                  window.minder.importJson(importData);
-                } catch (ex) {
-                  console.error(ex);
-                }
-                break;
-            }
-          });
-
-          window.addEventListener('keydown', function(e) {
-            var keyCode = e.keyCode || e.which || e.charCode;
-            var ctrlKey = e.ctrlKey || e.metaKey;
-            if (ctrlKey && keyCode === 83) {
-              var btnSave = document.querySelector('.km-export-save');
-              btnSave.click();
-            }
-          });
-
-          window.vscode.postMessage({
-            command: 'loaded',
-          });
-        };
-      });
-  </script>
+  <script src="${vscode}/dist/main.min.js"></script>
 </html>
