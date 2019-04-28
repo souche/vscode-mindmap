@@ -8,7 +8,8 @@
     "build": "grunt build",
     "dev": "grunt dev",
     "watch": "wr --exec \"lessc --source-map less/editor.less dist/kityminder.editor.css && grunt build\" less ui",
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "build:rollup": "rollup -w --config ./rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/fex-team/kityminder-editor",
   "devDependencies": {
+    "@babel/preset-env": "^7.4.3",
     "cz-conventional-changelog": "^1.1.5",
     "grunt": "~0.4.1",
     "grunt-angular-templates": "~0.5.0",
@@ -45,10 +47,13 @@
     "grunt-wiredep": "^2.0.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^3.1.0",
+    "rollup-plugin-babel": "^4.3.2",
     "uglify-js": "^2.8.29"
   },
   "dependencies": {
-    "kityminder-core": "^1.4.50"
+    "@babel/core": "^7.4.3",
+    "kityminder-core": "^1.4.50",
+    "rollup-plugin-uglify": "^6.0.2"
   },
   "config": {
     "commitizen": {
