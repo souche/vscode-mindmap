@@ -2,7 +2,7 @@
   <h1 align="center">vscode-mindmap</h1>
 </p>
 
-![mindmap](https://img.souche.com/f2e/1eadd508ee3488cb815b44c723c7154a.gif)
+![mindmap](https://img.souche.com/f2e/f12837b4057a8f1c5dd5033560a48f20.gif)
 
 ## Features
 
