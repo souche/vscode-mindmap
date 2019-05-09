@@ -18,7 +18,6 @@
   "activationEvents": [
     "onLanguage:xmind",
     "onLanguage:km",
-    "onLanguage:md",
     "onCommand:extension.mindmap"
   ],
   "main": "./out/extension",
@@ -42,15 +41,6 @@
         "aliases": [
           "XMIND",
           "xmind"
-        ]
-      },
-      {
-        "id": "markdown",
-        "extensions": [
-          ".md"
-        ],
-        "aliases": [
-          "md"
         ]
       }
     ],

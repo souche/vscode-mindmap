@@ -4,7 +4,9 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { resourceSchema } from './constant';
 import { Xmind, Img } from './services';
-const matchableFileTypes: string[] = ['xmind', 'km', 'git'];
+const matchableFileTypes: string[] = ['xmind', 'km'];
+
+// type ProcessService = Xmind | Markdown;
 
 export function activate(context: vscode.ExtensionContext) {
   const openedPanelMap = new Map<string, boolean | undefined | null>();
@@ -35,13 +37,13 @@ export function activate(context: vscode.ExtensionContext) {
       const extName = path.extname(fileName);
       const xmindService = new Xmind(fileName);
       const imgService = new Img();
-      const panel = createWebviewPanel(basename);
       const importData = getImportData(fileName, extName, xmindService) || '{}';
 
       if (!matchableFileTypes.includes(extName.slice(1))) {
         return;
       }
 
+      const panel = createWebviewPanel(basename);
       panel.webview.html = html;
       panel.webview.onDidReceiveMessage(
         message => {
