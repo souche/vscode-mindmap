@@ -9,3 +9,7 @@
 ## 0.0.3 - (2019.4.28)
 
 - add the function of automatically opening mindmaps
+
+## 0.0.4 - (2019.5.9)
+
+- fix the error of opening the mindmap on the markdown file and .gitignore
