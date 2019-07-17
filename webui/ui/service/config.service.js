@@ -10,7 +10,7 @@ angular.module('kityminderEditor').provider('config', function() {
     dividerWidth: 3,
 
     // 默认语言
-    defaultLang: 'zh-cn',
+    defaultLang: 'en',
 
     // 放大缩小比例
     zoom: [10, 20, 30, 50, 80, 100, 120, 150, 200],
