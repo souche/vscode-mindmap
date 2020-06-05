@@ -6,7 +6,7 @@
  * @author: techird
  * @copyright: Baidu FEX, 2014
  */
-define(function(require, exports, module) {
+define(function (require, exports, module) {
 
     require('../tool/innertext');
 
@@ -37,7 +37,7 @@ define(function(require, exports, module) {
             fsm.when('* -> input', enterInputMode);
 
             // when exited, commit or exit depends on the exit reason
-            fsm.when('input -> *', function(exit, enter, reason) {
+            fsm.when('input -> *', function (exit, enter, reason) {
                 switch (reason) {
                     case 'input-cancel':
                         return exitInputMode();
@@ -60,7 +60,7 @@ define(function(require, exports, module) {
                 }
             });
 
-            minder.on('dblclick', function() {
+            minder.on('dblclick', function () {
                 if (minder.getSelectedNode() && minder._status !== 'readonly') {
                     editText();
                 }
@@ -74,11 +74,11 @@ define(function(require, exports, module) {
                 receiverElement.classList.add('debug');
             }
 
-            receiverElement.onmousedown = function(e) {
+            receiverElement.onmousedown = function (e) {
                 e.stopPropagation();
             };
 
-            minder.on('layoutallfinish viewchange viewchanged selectionchange', function(e) {
+            minder.on('layoutallfinish viewchange viewchanged selectionchange', function (e) {
 
                 // viewchange event is too frequenced, lazy it
                 if (e.type == 'viewchange' && fsm.state() != 'input') return;
@@ -94,9 +94,9 @@ define(function(require, exports, module) {
         function setupHotbox() {
             hotbox.state('main').button({
                 position: 'center',
-                label: '编辑',
+                label: 'Edit',
                 key: 'F2',
-                enable: function() {
+                enable: function () {
                     return minder.queryCommandState('text') != -1;
                 },
                 action: editText
@@ -109,7 +109,7 @@ define(function(require, exports, module) {
          * @editor Naixor
          * @Date 2015-12-2
          */
-         // edit for the selected node
+        // edit for the selected node
         function editText() {
             var node = minder.getSelectedNode();
             if (!node) {
@@ -162,7 +162,7 @@ define(function(require, exports, module) {
          * @Editor: Naixor
          * @Date: 2015.9.16
          */
-        function commitInputText (textNodes) {
+        function commitInputText(textNodes) {
             var text = '';
             var TAB_CHAR = '\t',
                 ENTER_CHAR = '\n',
@@ -175,9 +175,9 @@ define(function(require, exports, module) {
                 isItalic = false;
 
             for (var str,
-                    _divChildNodes,
-                    space_l, space_num, tab_num,
-                    i = 0, l = textNodes.length; i < l; i++) {
+                _divChildNodes,
+                space_l, space_num, tab_num,
+                i = 0, l = textNodes.length; i < l; i++) {
                 str = textNodes[i];
 
                 switch (Object.prototype.toString.call(str)) {
@@ -222,7 +222,7 @@ define(function(require, exports, module) {
                                 isItalic = true;
                                 break;
                             }
-                            default: {}
+                            default: { }
                         }
                         [].splice.apply(textNodes, [i, 1].concat([].slice.call(str.childNodes)));
                         l = textNodes.length;
@@ -308,7 +308,7 @@ define(function(require, exports, module) {
          */
         function commitInputNode(node, text) {
             try {
-                minder.decodeData('text', text).then(function(json) {
+                minder.decodeData('text', text).then(function (json) {
                     function importText(node, json, minder) {
                         var data = json.data;
 
@@ -364,7 +364,7 @@ define(function(require, exports, module) {
 
             if (node.type == 'root') {
                 var rootText = minder.getRoot().getText();
-                minder.fire('initChangeRoot', {text: rootText});
+                minder.fire('initChangeRoot', { text: rootText });
             }
         }
 
@@ -380,7 +380,7 @@ define(function(require, exports, module) {
             if (!focusNode) return;
 
             if (!planed.timer) {
-                planed.timer = setTimeout(function() {
+                planed.timer = setTimeout(function () {
                     var box = focusNode.getRenderBox('TextRenderer');
                     receiverElement.style.left = Math.round(box.x) + 'px';
                     receiverElement.style.top = (debug.flaged ? Math.round(box.bottom + 30) : Math.round(box.y)) + 'px';

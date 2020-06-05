@@ -8,7 +8,7 @@
  */
 
 
-define(function(require, exports, module) {
+define(function (require, exports, module) {
     var jsonDiff = require('../tool/jsondiff');
 
     function HistoryRuntime() {
@@ -111,7 +111,7 @@ define(function(require, exports, module) {
         var main = hotbox.state('main');
         main.button({
             position: 'top',
-            label: '撤销',
+            label: 'Undo',
             key: 'Ctrl + Z',
             enable: hasUndo,
             action: undo,
@@ -119,7 +119,7 @@ define(function(require, exports, module) {
         });
         main.button({
             position: 'top',
-            label: '重做',
+            label: 'Redo',
             key: 'Ctrl + Y',
             enable: hasRedo,
             action: redo,

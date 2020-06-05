@@ -1,4 +1,4 @@
-define(function(require, exports, module){
+define(function (require, exports, module) {
 
     function ProgressRuntime() {
         var minder = this.minder;
@@ -8,21 +8,21 @@ define(function(require, exports, module){
 
         main.button({
             position: 'top',
-            label: '进度',
+            label: 'Progress',
             key: 'G',
             next: 'progress',
-            enable: function() {
+            enable: function () {
                 return minder.queryCommandState('progress') != -1;
             }
         });
 
         var progress = hotbox.state('progress');
-        '012345678'.replace(/./g, function(p) {
+        '012345678'.replace(/./g, function (p) {
             progress.button({
                 position: 'ring',
                 label: 'G' + p,
                 key: p,
-                action: function() {
+                action: function () {
                     minder.execCommand('Progress', parseInt(p) + 1);
                 }
             });
@@ -30,16 +30,16 @@ define(function(require, exports, module){
 
         progress.button({
             position: 'center',
-            label: '移除',
+            label: 'Delete',
             key: 'Del',
-            action: function() {
+            action: function () {
                 minder.execCommand('Progress', 0);
             }
         });
 
         progress.button({
             position: 'top',
-            label: '返回',
+            label: 'Back',
             key: 'esc',
             next: 'back'
         });

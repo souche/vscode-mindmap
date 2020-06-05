@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
   function NodeRuntime() {
     var runtime = this;
     var minder = this.minder;
@@ -8,18 +8,18 @@ define(function(require, exports, module) {
     var main = hotbox.state('main');
 
     var buttons = [
-      '前移:Alt+Up:ArrangeUp',
-      '下级:Tab|Insert:AppendChildNode',
-      '同级:Enter:AppendSiblingNode',
-      '后移:Alt+Down:ArrangeDown',
-      '删除:Delete|Backspace:RemoveNode',
-      '上级:Shift+Tab|Shift+Insert:AppendParentNode',
+      'Up:Alt+Up:ArrangeUp',
+      'Append:Tab|Insert:AppendChildNode',
+      'Sibling:Enter:AppendSiblingNode',
+      'Down:Alt+Down:ArrangeDown',
+      'Delete:Delete|Backspace:RemoveNode',
+      'Append:Shift+Tab|Shift+Insert:AppendParentNode',
       //'全选:Ctrl+A:SelectAll'
     ];
 
     var AppendLock = 0;
 
-    buttons.forEach(function(button) {
+    buttons.forEach(function (button) {
       var parts = button.split(':');
       var label = parts.shift();
       var key = parts.shift();
@@ -28,7 +28,7 @@ define(function(require, exports, module) {
         position: 'ring',
         label: label,
         key: key,
-        action: function() {
+        action: function () {
           if (command.indexOf('Append') === 0) {
             AppendLock++;
             minder.execCommand(command, 'topic');
@@ -46,7 +46,7 @@ define(function(require, exports, module) {
             fsm.jump('normal', 'command-executed');
           }
         },
-        enable: function() {
+        enable: function () {
           return minder.queryCommandState(command) != -1;
         },
       });
@@ -54,9 +54,9 @@ define(function(require, exports, module) {
 
     main.button({
       position: 'bottom',
-      label: '导入节点',
+      label: 'Import Node',
       key: 'Alt + V',
-      enable: function() {
+      enable: function () {
         var selectedNodes = minder.getSelectedNodes();
         return selectedNodes.length == 1;
       },
@@ -66,9 +66,9 @@ define(function(require, exports, module) {
 
     main.button({
       position: 'bottom',
-      label: '导出节点',
+      label: 'Export Node',
       key: 'Alt + C',
-      enable: function() {
+      enable: function () {
         var selectedNodes = minder.getSelectedNodes();
         return selectedNodes.length == 1;
       },
