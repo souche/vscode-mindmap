@@ -1,16 +1,16 @@
 <div class="modal-header">
-    <h3 class="modal-title">Image</h3>
+    <h3 class="modal-title">{{ 'title' | lang: 'ui/dialog/image'}}</h3>
 </div>
 <div class="modal-body">
     <tabset>
         <tab heading="Image Search">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="search-keyword">Keywords</label>
+                    <label for="search-keyword">{{ 'keyword' | lang: 'ui/dialog/image'}}</label>
                     <input type="text" class="form-control" ng-model="data.searchKeyword2" id="search-keyword"
                         placeholder="Please input search keywords">
                 </div>
-                <button class="btn btn-primary" ng-click="searchImage()">Search</button>
+                <button class="btn btn-primary" ng-click="searchImage()">{{ 'baidu' | lang: 'ui/dialog/image'}}</button>
             </form>
             <div class="search-result" id="search-result">
                 <ul>
@@ -26,18 +26,18 @@
         <tab heading="Image Address">
             <form>
                 <div class="form-group" ng-class="{true: 'has-success', false: 'has-error'}[urlPassed]">
-                    <label for="image-url">Image Address：</label>
+                    <label for="image-url">{{ 'linkurl' | lang: 'ui/dialog/image'}}</label>
                     <input type="text" class="form-control" ng-model="data.url"
                         ng-blur="urlPassed = data.R_URL.test(data.url)" ng-focus="this.value = data.url"
                         ng-keydown="shortCut($event)" id="image-url" placeholder="Required: starts with http(s)://">
                 </div>
                 <div class="form-group" ng-class="{'has-success' : titlePassed}">
-                    <label for="image-title">Image Title：</label>
+                    <label for="image-title">{{ 'imagehint' | lang: 'ui/dialog/image'}}</label>
                     <input type="text" class="form-control" ng-model="data.title" ng-blur="titlePassed = true"
                         id="image-title" placeholder="Optional: Text that's displayed when the mouse hovers the image">
                 </div>
                 <div class="form-group">
-                    <label for="image-preview">Image Preview: </label>
+                    <label for="image-preview">{{ 'preview' | lang: 'ui/dialog/image'}}</label>
                     <img class="image-preview" id="image-preview" ng-src="{{ data.url }}" alt="{{ data.title }}" />
                 </div>
             </form>
@@ -49,15 +49,16 @@
                     <input type="file" name="upload-image" id="upload-image" class="upload-image"
                         accept=".jpg,.JPG,jpeg,JPEG,.png,.PNG,.gif,.GIF"
                         onchange="angular.element(this).scope().uploadImage()" />
-                    <label for="upload-image" class="btn btn-primary"><span>Select a file&hellip;</span></label>
+                    <label for="upload-image"
+                        class="btn btn-primary"><span>{{ 'selectfile' | lang: 'ui/dialog/image'}}</span></label>
                 </div>
                 <div class="form-group" ng-class="{'has-success' : titlePassed}">
-                    <label for="image-title">Image Title：</label>
+                    <label for="image-title">{{ 'imagehint' | lang: 'ui/dialog/image'}}</label>
                     <input type="text" class="form-control" ng-model="data.title" ng-blur="titlePassed = true"
                         id="image-title" placeholder="Optional: Text that's displayed when the mouse hovers the image">
                 </div>
                 <div class="form-group">
-                    <label for="image-preview">Image Preview：</label>
+                    <label for="image-preview">{{ 'preview' | lang: 'ui/dialog/image'}}</label>
                     <img class="image-preview" id="image-preview" ng-src="{{ data.url }}" title="{{ data.title }}"
                         alt="{{ data.title }}" />
                 </div>
@@ -67,6 +68,6 @@
 
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-click="ok()">{{ 'ok' | lang: 'ui/dialog/image'}}</button>
+    <button class="btn btn-warning" ng-click="cancel()">{{ 'cancel' | lang: 'ui/dialog/image'}}</button>
 </div>

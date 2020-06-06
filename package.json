@@ -1,8 +1,8 @@
 {
   "name": "vscode-mindmap",
-  "displayName": "vscode-mindmap",
+  "displayName": "vscode-mindmap (i18n)",
   "icon": "resources/icon.png",
-  "description": "mindmap for vscode",
+  "description": "mindmap for vscode (with i18n support)",
   "version": "0.0.6",
   "publisher": "Souche",
   "repository": {
