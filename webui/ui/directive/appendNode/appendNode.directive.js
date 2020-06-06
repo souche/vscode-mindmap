@@ -1,6 +1,6 @@
 angular.module('kityminderEditor').directive('appendNode', [
   'commandBinder',
-  function(commandBinder) {
+  function (commandBinder) {
     return {
       restrict: 'E',
       templateUrl: 'ui/directive/appendNode/appendNode.html',
@@ -8,13 +8,14 @@ angular.module('kityminderEditor').directive('appendNode', [
         minder: '=',
       },
       replace: true,
-      link: function($scope) {
+      link: function ($scope) {
         var minder = $scope.minder;
+        var lang = editor.lang.t;
 
         commandBinder.bind(minder, 'appendchildnode', $scope);
 
-        $scope.execCommand = function(command) {
-          minder.execCommand(command, 'topic');
+        $scope.execCommand = function (command) {
+          minder.execCommand(command, lang("topic", "runtime/node"));
           editText();
         };
 

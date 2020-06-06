@@ -4,17 +4,28 @@ define(function (require, exports, module) {
     var minder = this.minder;
     var hotbox = this.hotbox;
     var fsm = this.fsm;
+    var lang = this.lang.t;
 
     var main = hotbox.state('main');
 
+    // var buttons = [
+    //   'Up:Alt+Up:ArrangeUp',
+    //   'Append:Tab|Insert:AppendChildNode',
+    //   'Sibling:Enter:AppendSiblingNode',
+    //   'Down:Alt+Down:ArrangeDown',
+    //   'Delete:Delete|Backspace:RemoveNode',
+    //   'Append:Shift+Tab|Shift+Insert:AppendParentNode',
+    //   //'全选:Ctrl+A:SelectAll'
+    // ];
+
     var buttons = [
-      'Up:Alt+Up:ArrangeUp',
-      'Append:Tab|Insert:AppendChildNode',
-      'Sibling:Enter:AppendSiblingNode',
-      'Down:Alt+Down:ArrangeDown',
-      'Delete:Delete|Backspace:RemoveNode',
-      'Append:Shift+Tab|Shift+Insert:AppendParentNode',
-      //'全选:Ctrl+A:SelectAll'
+      lang('arrangeup', 'runtime/node') + ':Alt+Up:ArrangeUp',
+      lang('appendchildnode', 'runtime/node') + ':Tab|Insert:AppendChildNode',
+      lang('appendsiblingnode', 'runtime/node') + ':Enter:AppendSiblingNode',
+      lang('arrangedown', 'runtime/node') + ':Alt+Down:ArrangeDown',
+      lang('removenode', 'runtime/node') + ':Delete|Backspace:RemoveNode',
+      lang('appendparentnode', 'runtime/node') + ':Shift+Tab|Shift+Insert:AppendParentNode'
+      //lang('selectall', 'runtime/node') + ':Ctrl+A:SelectAll'
     ];
 
     var AppendLock = 0;

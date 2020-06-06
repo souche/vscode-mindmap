@@ -14,6 +14,7 @@ define(function (require, exports, module) {
     function HistoryRuntime() {
         var minder = this.minder;
         var hotbox = this.hotbox;
+        var lang = this.lang.t;
 
         var MAX_HISTORY = 100;
 
@@ -111,7 +112,7 @@ define(function (require, exports, module) {
         var main = hotbox.state('main');
         main.button({
             position: 'top',
-            label: 'Undo',
+            label: lang('undo', 'runtime/history'),
             key: 'Ctrl + Z',
             enable: hasUndo,
             action: undo,
@@ -119,7 +120,7 @@ define(function (require, exports, module) {
         });
         main.button({
             position: 'top',
-            label: 'Redo',
+            label: lang('redo', 'runtime/history'),
             key: 'Ctrl + Y',
             enable: hasRedo,
             action: redo,

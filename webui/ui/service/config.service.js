@@ -1,4 +1,4 @@
-angular.module('kityminderEditor').provider('config', function() {
+angular.module('kityminderEditor').provider('config', function () {
   this.config = {
     // 右侧面板最小宽度
     ctrlPanelMin: 250,
@@ -12,6 +12,8 @@ angular.module('kityminderEditor').provider('config', function() {
     // 默认语言
     defaultLang: 'en',
 
+    lang: 'en',
+
     // 放大缩小比例
     zoom: [10, 20, 30, 50, 80, 100, 120, 150, 200],
 
@@ -19,7 +21,7 @@ angular.module('kityminderEditor').provider('config', function() {
     imageUpload: 'server/imageUpload.php',
   };
 
-  this.set = function(key, value) {
+  this.set = function (key, value) {
     var supported = Object.keys(this.config);
     var configObj = {};
 
@@ -47,11 +49,11 @@ angular.module('kityminderEditor').provider('config', function() {
     return true;
   };
 
-  this.$get = function() {
+  this.$get = function () {
     var me = this;
 
     return {
-      get: function(key) {
+      get: function (key) {
         if (arguments.length === 0) {
           return me.config;
         }

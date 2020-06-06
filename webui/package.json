@@ -9,7 +9,7 @@
     "dev": "grunt dev",
     "watch": "wr --exec \"lessc --source-map less/editor.less dist/kityminder.editor.css && grunt build\" less ui",
     "postinstall": "bower install",
-    "build:rollup": "rollup -w --config ./rollup.config.js"
+    "build:rollup": "rollup --config ./rollup.config.js"
   },
   "repository": {
     "type": "git",

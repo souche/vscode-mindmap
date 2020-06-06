@@ -2,20 +2,20 @@
 
 var path = require('path');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     'use strict';
 
-	// Load grunt tasks automatically
-	require('load-grunt-tasks')(grunt);
+    // Load grunt tasks automatically
+    require('load-grunt-tasks')(grunt);
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     var pkg = grunt.file.readJSON('package.json');
 
-	var appConfig = {
-		app: require('./bower.json').appPath || 'app',
-		dist: 'dist'
-	};
+    var appConfig = {
+        app: require('./bower.json').appPath || 'app',
+        dist: 'dist'
+    };
 
     var banner = '/*!\n' +
         ' * ====================================================\n' +
@@ -36,16 +36,16 @@ module.exports = function(grunt) {
         // Metadata.
         pkg: pkg,
 
-	    yeoman: appConfig,
+        yeoman: appConfig,
 
         clean: {
             last: [
-	            '.tmp',
-	            'dist/*.js',
-	            'dist/*.css',
-	            'dist/*.css.map'
+                '.tmp',
+                'dist/*.js',
+                'dist/*.css',
+                'dist/*.css.map'
             ],
-	        clstmp: ['.tmp']
+            clstmp: ['.tmp']
         },
 
         // resolve dependence
@@ -57,7 +57,8 @@ module.exports = function(grunt) {
             merge: {
                 files: [{
                     src: [
-                        'src/**/*.js'
+                        'src/**/*.js',
+                        'l10n/*.js'
                     ],
                     dest: '.tmp/scripts/kityminder.editor.logic.js'
                 }]
@@ -65,7 +66,7 @@ module.exports = function(grunt) {
         },
 
         // browser sync for dev
-		browserSync: {
+        browserSync: {
             bsFiles: {
                 dist: 'dist/css/*.css',
                 src: 'src/**'
@@ -77,7 +78,7 @@ module.exports = function(grunt) {
                     watchTask: true
                 }
             }
-		},
+        },
 
         // concat
         concat: {
@@ -87,15 +88,15 @@ module.exports = function(grunt) {
                     footer: expose + '})();'
                 },
                 files: {
-	                'dist/kityminder.editor.js': [
-		                '.tmp/scripts/kityminder.editor.logic.js',
-		                '.tmp/scripts/kityminder.app.annotated.js',
-		                '.tmp/scripts/templates.annotated.js',
-		                '.tmp/scripts/service/*.js',
-		                '.tmp/scripts/filter/*.js',
+                    'dist/kityminder.editor.js': [
+                        '.tmp/scripts/kityminder.editor.logic.js',
+                        '.tmp/scripts/kityminder.app.annotated.js',
+                        '.tmp/scripts/templates.annotated.js',
+                        '.tmp/scripts/service/*.js',
+                        '.tmp/scripts/filter/*.js',
                         '.tmp/scripts/dialog/**/*.js',
-		                '.tmp/scripts/directive/**/*.js'
-	                ]
+                        '.tmp/scripts/directive/**/*.js'
+                    ]
                 }
             }
         },
@@ -106,8 +107,8 @@ module.exports = function(grunt) {
             },
             minimize: {
                 files: [{
-	                src: 'dist/kityminder.editor.js',
-	                dest: 'dist/kityminder.editor.min.js'
+                    src: 'dist/kityminder.editor.js',
+                    dest: 'dist/kityminder.editor.min.js'
                 }]
             }
         },
@@ -116,7 +117,7 @@ module.exports = function(grunt) {
             compile: {
                 options: {
                     sourceMap: true,
-	                sourceMapURL: 'kityminder.editor.css.map',
+                    sourceMapURL: 'kityminder.editor.css.map',
                     sourceMapFilename: 'dist/kityminder.editor.css.map'
                 },
                 files: [{
@@ -126,77 +127,77 @@ module.exports = function(grunt) {
             }
         },
 
-	    cssmin: {
-	        dist: {
-	            files: {
-	                'dist/kityminder.editor.min.css': 'dist/kityminder.editor.css'
-	         }
-	       }
-	    },
+        cssmin: {
+            dist: {
+                files: {
+                    'dist/kityminder.editor.min.css': 'dist/kityminder.editor.css'
+                }
+            }
+        },
 
-	    ngtemplates: {
-		    kityminderEditor: {
-			    src: ['ui/directive/**/*.html', 'ui/dialog/**/*.html'],
-			    dest: 'ui/templates.js',
-			    options: {
-				    htmlmin: {
-					    collapseBooleanAttributes: true,
-					    collapseWhitespace: true,
-					    removeComments: true
-				    }
-			    }
-		    }
-	    },
+        ngtemplates: {
+            kityminderEditor: {
+                src: ['ui/directive/**/*.html', 'ui/dialog/**/*.html'],
+                dest: 'ui/templates.js',
+                options: {
+                    htmlmin: {
+                        collapseBooleanAttributes: true,
+                        collapseWhitespace: true,
+                        removeComments: true
+                    }
+                }
+            }
+        },
 
-	    // Automatically inject Bower components into the app
-	    wiredep: {
-		    dev: {
-			    src: ['index.html'],
-			    devDependencies: true
-		    },
-		    dist: {
-			    src: ['dist/index.html']
-		    }
-	    },
+        // Automatically inject Bower components into the app
+        wiredep: {
+            dev: {
+                src: ['index.html'],
+                devDependencies: true
+            },
+            dist: {
+                src: ['dist/index.html']
+            }
+        },
 
-	    // Copies remaining files to places other tasks can use
-	    copy: {
-		    dist: {
-				files: [{
-				    expand: true,
-				    cwd: 'ui',
-					src: 'images/*',
-				    dest: 'dist'
+        // Copies remaining files to places other tasks can use
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'ui',
+                    src: 'images/*',
+                    dest: 'dist'
 
-			    }]
-		    }
-	    },
+                }]
+            }
+        },
 
 
-	    // ng-annotate tries to make the code safe for minification automatically
-	    // by using the Angular long form for dependency injection.
-	    ngAnnotate: {
-		    dist: {
-			    files: [{
-				    expand: true,
-				    cwd: 'ui/',
-				    src: '**/*.js',
-				    ext: '.annotated.js',
-				    extDot: 'last',
-				    dest: '.tmp/scripts/'
-			    }]
-		    }
-	    }
+        // ng-annotate tries to make the code safe for minification automatically
+        // by using the Angular long form for dependency injection.
+        ngAnnotate: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'ui/',
+                    src: '**/*.js',
+                    ext: '.annotated.js',
+                    extDot: 'last',
+                    dest: '.tmp/scripts/'
+                }]
+            }
+        }
 
 
     });
 
     // Build task(s).
-	grunt.registerTask('build', ['clean:last',
-		//'wiredep:dist',
+    grunt.registerTask('build', ['clean:last',
+        //'wiredep:dist',
         'ngtemplates', 'dependence', 'ngAnnotate', 'concat', 'uglify', 'less', 'cssmin', 'copy', 'clean:clstmp']);
 
-	grunt.registerTask('dev', ['clean:last',
+    grunt.registerTask('dev', ['clean:last',
         //'wiredep:dev',
         'ngtemplates', 'dependence', 'ngAnnotate', 'concat', 'uglify', 'less', 'cssmin', 'copy', 'clean:clstmp', 'browserSync', 'watch']);
 };

@@ -3,17 +3,16 @@
     <input class="form-control" type="text" ng-model="newResourceName" ng-required
       ng-keypress="$event.keyCode == 13 && addResource(newResourceName)" ng-disabled="!enabled" />
     <span class="input-group-btn">
-      <button class="btn btn-default" ng-click="addResource(newResourceName)" ng-disabled="!enabled">
-        Add
-      </button>
+      <button class="btn btn-default" ng-click="addResource(newResourceName)"
+        ng-disabled="!enabled">{{ 'add' | lang: 'ui/resource'; }}</button>
     </span>
   </div>
   <div class="resource-dropdown clearfix" id="resource-dropdown">
     <ul class="km-resource" ng-init="resourceListOpen = false" ng-class="{'open': resourceListOpen}">
       <li ng-repeat="resource in used" ng-disabled="!enabled" ng-blur="blurCB()">
-        <label style="background: {{ resourceColor(resource.name) }}">
+        <label style="background: {{resourceColor(resource.name)}}">
           <input type="checkbox" ng-model="resource.selected" ng-disabled="!enabled" />
-          <span>{{ resource.name }}</span>
+          <span>{{resource.name}}</span>
         </label>
       </li>
     </ul>

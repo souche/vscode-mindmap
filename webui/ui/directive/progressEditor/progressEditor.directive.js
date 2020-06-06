@@ -1,6 +1,6 @@
 angular.module('kityminderEditor').directive('progressEditor', [
   'commandBinder',
-  function(commandBinder) {
+  function (commandBinder) {
     return {
       restrict: 'E',
       templateUrl: 'ui/directive/progressEditor/progressEditor.html',
@@ -8,8 +8,9 @@ angular.module('kityminderEditor').directive('progressEditor', [
         minder: '=',
       },
       replace: true,
-      link: function($scope) {
+      link: function ($scope) {
         var minder = $scope.minder;
+        var lang = editor.lang.t;
         var progresses = [];
 
         for (var i = 0; i < 10; i++) {
@@ -20,17 +21,8 @@ angular.module('kityminderEditor').directive('progressEditor', [
 
         $scope.progresses = progresses;
 
-        $scope.getProgressTitle = function(p) {
-          switch (p) {
-            case 0:
-              return 'clear';
-            case 1:
-              return 'undone';
-            case 9:
-              return 'done';
-            default:
-              return 'done' + (p - 1) + '/8';
-          }
+        $scope.getProgressTitle = function (p) {
+          return lang('p' + p, 'ui/progress');
         };
       },
     };

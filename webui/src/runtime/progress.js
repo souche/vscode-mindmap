@@ -3,12 +3,13 @@ define(function (require, exports, module) {
     function ProgressRuntime() {
         var minder = this.minder;
         var hotbox = this.hotbox;
+        var lang = this.lang.t;
 
         var main = hotbox.state('main');
 
         main.button({
             position: 'top',
-            label: 'Progress',
+            label: lang('main', 'runtime/progress'),
             key: 'G',
             next: 'progress',
             enable: function () {
@@ -30,7 +31,7 @@ define(function (require, exports, module) {
 
         progress.button({
             position: 'center',
-            label: 'Delete',
+            label: lang('remove', 'runtime/progress'),
             key: 'Del',
             action: function () {
                 minder.execCommand('Progress', 0);
@@ -39,7 +40,7 @@ define(function (require, exports, module) {
 
         progress.button({
             position: 'top',
-            label: 'Back',
+            label: lang('esc', 'runtime/progress'),
             key: 'esc',
             next: 'back'
         });

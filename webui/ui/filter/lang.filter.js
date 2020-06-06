@@ -1,20 +1,7 @@
-angular.module('kityminderEditor').filter('lang', [
-  'config',
-  'lang.en',
-  function(config, lang) {
-    return function(text, block) {
-      var defaultLang = config.get('defaultLang');
-
-      if (lang[defaultLang] == undefined) {
-        return '未发现对应语言包，请检查 lang.xxx.service.js!';
-      } else {
-        var dict = lang[defaultLang];
-        block.split('/').forEach(function(ele, idx) {
-          dict = dict[ele];
-        });
-
-        return dict[text] || null;
-      }
+angular.module('kityminderEditor')
+  .filter('lang', ['config', function (config) {
+    return function (text, block) {
+      var lang = config.get('lang');
+      return window.editor.lang.t(text, block, lang);
     };
-  },
-]);
+  }]);

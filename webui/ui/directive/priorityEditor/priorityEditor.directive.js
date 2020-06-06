@@ -3,7 +3,7 @@ angular
 
   .directive('priorityEditor', [
     'commandBinder',
-    function(commandBinder) {
+    function (commandBinder) {
       return {
         restrict: 'E',
         templateUrl: 'ui/directive/priorityEditor/priorityEditor.html',
@@ -11,8 +11,9 @@ angular
           minder: '=',
         },
         replace: true,
-        link: function($scope) {
+        link: function ($scope) {
           var minder = $scope.minder;
+          var lang = editor.lang.t;
           var priorities = [];
 
           for (var i = 0; i < 10; i++) {
@@ -23,12 +24,10 @@ angular
 
           $scope.priorities = priorities;
 
-          $scope.getPriorityTitle = function(p) {
+          $scope.getPriorityTitle = function (p) {
             switch (p) {
-              case 0:
-                return 'clear';
-              default:
-                return 'priority' + p;
+              case 0: return lang("no priority", "ui");
+              default: return lang("priority", "ui") + " " + p;
             }
           };
         },

@@ -20,6 +20,7 @@ define(function (require, exports, module) {
         var receiver = this.receiver;
         var receiverElement = receiver.element;
         var isGecko = window.kity.Browser.gecko;
+        var lang = this.lang.t;
 
         // setup everything to go
         setupReciverElement();
@@ -94,7 +95,7 @@ define(function (require, exports, module) {
         function setupHotbox() {
             hotbox.state('main').button({
                 position: 'center',
-                label: 'Edit',
+                label: lang('edit', 'runtime/input'),
                 key: 'F2',
                 enable: function () {
                     return minder.queryCommandState('text') != -1;
