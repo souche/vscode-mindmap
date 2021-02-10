@@ -3,13 +3,13 @@
 </div>
 <div class="modal-body">
     <tabset>
-        <tab heading="图片搜索">
+        <tab heading="图片搜索/Search">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="search-keyword">关键词：</label>
+                    <label for="search-keyword">关键词/Search：</label>
                     <input type="text" class="form-control" ng-model="data.searchKeyword2" id="search-keyword" placeholder="请输入搜索的关键词">
                 </div>
-                <button class="btn btn-primary" ng-click="searchImage()">百度一下</button>
+                <button class="btn btn-primary" ng-click="searchImage()">百度一下/Search</button>
             </form>
             <div class="search-result" id="search-result">
                 <ul>
@@ -20,10 +20,10 @@
                 </ul>
             </div>
         </tab>
-        <tab heading="外链图片">
+        <tab heading="外链图片/Image">
             <form>
                 <div class="form-group" ng-class="{true: 'has-success', false: 'has-error'}[urlPassed]">
-                    <label for="image-url">链接地址：</label>
+                    <label for="image-url">链接地址/Url：</label>
                     <input type="text"
                            class="form-control"
                            ng-model="data.url"
@@ -34,28 +34,28 @@
                            placeholder="必填：以 http(s):// 开头">
                 </div>
                 <div class="form-group" ng-class="{'has-success' : titlePassed}">
-                    <label for="image-title">提示文本：</label>
+                    <label for="image-title">提示文本/Title：</label>
                     <input type="text" class="form-control" ng-model="data.title" ng-blur="titlePassed = true" id="image-title" placeholder="选填：鼠标在图片上悬停时提示的文本">
                 </div>
                 <div class="form-group">
-                    <label for="image-preview">图片预览：</label>
+                    <label for="image-preview">图片预览/Image：</label>
                     <img class="image-preview" id="image-preview" ng-src="{{ data.url }}" alt="{{ data.title }}"/>
                 </div>
             </form>
         </tab>
-        <tab heading="上传图片" active="true">
+        <tab heading="上传图片/File" active="true">
             <form>
                 <div class="form-group">
                     <!-- 这里不能用 ng-change -->
                     <input type="file" name="upload-image" id="upload-image" class="upload-image" accept=".jpg,.JPG,jpeg,JPEG,.png,.PNG,.gif,.GIF" onchange="angular.element(this).scope().uploadImage()"/>
-                    <label for="upload-image" class="btn btn-primary"><span>选择文件&hellip;</span></label>
+                    <label for="upload-image" class="btn btn-primary"><span>选择文件&hellip;/Upload</span></label>
                 </div>
                 <div class="form-group" ng-class="{'has-success' : titlePassed}">
-                    <label for="image-title">提示文本：</label>
+                    <label for="image-title">提示文本/Title：</label>
                     <input type="text" class="form-control" ng-model="data.title" ng-blur="titlePassed = true" id="image-title" placeholder="选填：鼠标在图片上悬停时提示的文本">
                 </div>
                 <div class="form-group">
-                    <label for="image-preview">图片预览：</label>
+                    <label for="image-preview">图片预览/Image：</label>
                     <img class="image-preview" id="image-preview" ng-src="{{ data.url }}" title="{{ data.title }}" alt="{{ data.title }}"/>
                 </div>
             </form>
@@ -64,6 +64,6 @@
 
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">确定</button>
-    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+    <button class="btn btn-primary" ng-click="ok()">确定/OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">取消/Cancel</button>
 </div>
