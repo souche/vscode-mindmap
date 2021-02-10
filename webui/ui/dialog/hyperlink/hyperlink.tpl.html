@@ -1,10 +1,10 @@
 <div class="modal-header">
-    <h3 class="modal-title">链接</h3>
+    <h3 class="modal-title">链接/Link</h3>
 </div>
 <div class="modal-body">
     <form>
         <div class="form-group" id="link-url-wrap" ng-class="{true: 'has-success', false: 'has-error'}[urlPassed]">
-            <label for="link-url">链接地址：</label>
+            <label for="link-url">链接地址/URL：</label>
             <input type="text"
                    class="form-control"
                    ng-model="url"
@@ -15,12 +15,12 @@
                    placeholder="必填：以 http(s):// 或 ftp:// 开头">
         </div>
         <div class="form-group" ng-class="{'has-success' : titlePassed}">
-            <label for="link-title">提示文本：</label>
+            <label for="link-title">提示文本/Title：</label>
             <input type="text" class="form-control" ng-model="title" ng-blur="titlePassed = true" id="link-title" placeholder="选填：鼠标在链接上悬停时提示的文本">
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">确定</button>
-    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+    <button class="btn btn-primary" ng-click="ok()">确定/OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">取消/Cancel</button>
 </div>
